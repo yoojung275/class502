@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <style>
+            .box {
+                width: 250px;
+                height: 250px;
+                background: #ccc;
+                white space: nowrap;
+                overflow: hidden;
+
+            }
+            .box2 {
+                width: 250px;
+                height: 250px;
+                background: #ccc;
+                overflow: auto;
+            }
+            .box3 {
+                letter-spacing: 30px;
+            }
+            .box4 {
+                word-spacing: 100px;
+            }
+        </style>
+        <div class="box">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaert culpa sed aspersiores
+            voluptates alias laboriosam repellendus amet odio rem, facilis eligendi fuga dolorem
+            dolores eaque natus ne
+        </div>
+
+        <div calss="box2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaert culpa sed aspersiores
+            voluptates alias laboriosam repellendus amet odio rem, facilis eligendi fuga dolorem
+            dolores eaque natus ne
+        </div>
+
+        <div calss="box3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaert culpa sed aspersiores
+            voluptates alias laboriosam repellendus amet odio rem, facilis eligendi fuga dolorem
+            dolores eaque natus ne
+        </div>
+
+        <div calss="box4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaert culpa sed aspersiores
+            voluptates alias laboriosam repellendus amet odio rem, facilis eligendi fuga dolorem
+            dolores eaque natus ne
+
+            
+        </div>
+    </body>
+</html>
