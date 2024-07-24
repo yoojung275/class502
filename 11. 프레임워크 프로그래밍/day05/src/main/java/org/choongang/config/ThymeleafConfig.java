@@ -24,6 +24,8 @@ public class ThymeleafConfig implements WebMvcConfigurer {
         templateResolver.setPrefix("/WEB-INF/templates2/");
         templateResolver.setSuffix(".html"); //확장자 -> 디자이너가 작업해준 거 받아오는 경우가 많아서 그럼
         templateResolver.setCacheable(false); //캐시
+        // true가 되면 서버 재로딩해도 템플릿이 변경이 안됌 -> 개발 중에는 false가 적절
+        // 배포시에만 true
         return templateResolver;
     }
 

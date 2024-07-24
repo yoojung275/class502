@@ -17,7 +17,7 @@ public class RestCommonControllerAdvice {
 
         Object message = e.getMessage();
 
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 내가 정의한 게 아니면 그냥 500으로 나오게 설정
         if (e instanceof CommonException commonException) {
             status = commonException.getStatus();
 

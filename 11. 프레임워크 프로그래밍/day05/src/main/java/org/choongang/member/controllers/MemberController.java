@@ -93,7 +93,7 @@ public class MemberController {
 
         return "redirect:/member/login";
     }
-
+/*
     @GetMapping("/list")
     public String list(@Valid @ModelAttribute MemberSearch search, Errors errors) {
 
@@ -107,7 +107,38 @@ public class MemberController {
         return "member/list";
     }
 
+ */
 
+    @GetMapping("/list")
+    public String list2(Model model) {
+/*
+        Member member = Member.builder()
+                .email("user01@test.org")
+                .password("12345678")
+                .userName("<h1>사용자01</h1>")
+                .regDt(LocalDateTime.now())
+                .build();
+
+        model.addAttribute("member", member);
+ */
+        List<Member> items = IntStream.rangeClosed(1,10)
+                .mapToObj(i -> Member.builder()
+                        .email("user" + i + "@test.org")
+                        .userName("사용자"+i)
+                        .regDt(LocalDateTime.now())
+                        .build())
+                .toList();
+
+        model.addAttribute("items", items);
+
+        model.addAttribute("addCss", new String[] {"member/style", "member/list"});
+        model.addAttribute("addScript", List.of("member/common", "member/list"));
+
+        return "member/list";
+    }
+
+
+    @ResponseBody
     @GetMapping({"/info/{id}/{id2}", "/info/{id}"})
     public void info(@PathVariable("id") String email, @PathVariable(name="id2", required = false) String email2) {
 

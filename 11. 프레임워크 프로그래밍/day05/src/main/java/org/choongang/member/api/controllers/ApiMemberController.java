@@ -33,7 +33,8 @@ public class ApiMemberController {
     private final Utils utils;
 
     @PostMapping //POST/api/member
-    public ResponseEntity join(@RequestBody @Valid RequestJoin form, Errors errors) {
+    public ResponseEntity join(@RequestBody @Valid RequestJoin form, Errors errors) { //  Errors errors -> 커맨드 객체(RequestJoin)에 대한 검증 / 커맨드 객체 바로 뒤에 꼭 Errors errors 가 와야 함
+        //Errors errors -> rejectValue : 필드 한정 (필드 에러) / reject : 필드 한정 x (글로벌 에러)
 
         if (errors.hasErrors()) {
             throw new BadRequestException(utils.getErrorMessages(errors));
