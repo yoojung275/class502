@@ -17,6 +17,7 @@ spring:
         format_sql: true # 실행하는 SQL의 들여쓰기 및 줄 개행
         use_sql_comments: true
         #dialect: org.hibernate.dialect.OracleDialect
+        default_batch_fetch_size: 100
 
     hibernate:
       ddl-auto: create

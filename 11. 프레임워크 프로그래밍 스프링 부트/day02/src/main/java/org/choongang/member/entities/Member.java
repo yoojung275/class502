@@ -1,12 +1,12 @@
 package org.choongang.member.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.choongang.board.entities.BoardData;
 import org.choongang.global.entities.BaseEntity;
 import org.choongang.member.constants.Authority;
+
+import java.util.List;
 
 @Builder
 @Data
@@ -33,6 +33,12 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING) //EnumType.ORDINAL -> ORDINAL이 기본값이지만 순서가 꼬이면 문제가 커지니 EnumType.STRING으로 해야 함
     @Column(length = 10)
     private Authority authority;
-
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profileSeq")
+    private MemberProfile profile;
+    @ToString.Exclude //ToString 추가 배제
+    @OneToMany(mappedBy = "member", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true) //many -> BoardData // member -> BoardData 쪽 member
+    //cascade = CascadeType.REMOVE -> 부모 데이터 삭제시 자식 데이터도 삭제
+    private List<BoardData> items;
 
 }
